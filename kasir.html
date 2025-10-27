@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kasir Pemesanan</title>
+    <link rel="stylesheet" href="kasir.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+     <a href="index.html">
+
+       <button style="margin-top: 20px; width: 100px; " class="btn btn-success ">Logout </button>
+      </a>
+       
+    <div id="app">
+      <div class="container">
+        <header class="header">
+          <h1 class="title">Kasir Pemesanan</h1>
+          <p class="subtitle">Menu Makanan</p>
+        </header>
+        <div class="logout">
+
+         
+        </div>
+
+        <div class="main-content">
+          <section class="menu-section">
+            <h2 class="section-title">Menu</h2>
+            <div class="menu-grid">
+              <div class="menu-item" data-item="banana-roll">
+                <div class="menu-icon"><img src="bananaroll.png" width="100" alt=""></div>
+                <h3 class="menu-name">Banana Roll</h3>
+                <p class="menu-price">Rp 15.000</p>
+                <button class="btn-add" onclick="addToCart('banana-roll', 'Banana Roll', 15000)">
+                  Tambah
+                </button>
+              </div>
+
+              <div class="menu-item" data-item="dimsum">
+                <div class="menu-icon"><img src="dimsum.png" width="100" alt=""></div>
+                <h3 class="menu-name">Dimsum</h3>
+                <p class="menu-price">Rp 20.000</p>
+                <button class="btn-add" onclick="addToCart('dimsum', 'Dimsum', 20000)">
+                  Tambah
+                </button>
+              </div>
+
+              <div class="menu-item" data-item="bolu-ketan">
+                <div class="menu-icon"><img src="image.png" width="100" alt=""></div>
+                <h3 class="menu-name">Bolu Ketan Susu</h3>
+                <p class="menu-price">Rp 25.000</p>
+                <button class="btn-add" onclick="addToCart('bolu-ketan', 'Bolu Ketan Susu', 25000)">
+                  Tambah
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="cart-section">
+            <h2 class="section-title">Keranjang</h2>
+            <div class="cart-content">
+              <div id="cart-items" class="cart-items">
+                <div class="empty-cart">
+                  <p>Keranjang masih kosong</p>
+                </div>
+              </div>
+
+              <div class="cart-summary">
+                <div class="summary-row">
+                  <span>Subtotal:</span>
+                  <span id="subtotal">Rp 0</span>
+                </div>
+                <div class="summary-row">
+                  <span>Pajak (10%):</span>
+                  <span id="tax">Rp 0</span>
+                </div>
+                <div class="summary-row total">
+                  <span>Total:</span>
+                  <span id="total">Rp 0</span>
+                </div>
+              </div>
+
+              <div class="cart-actions">
+                <button class="btn-clear" onclick="clearCart()">
+                  Hapus Semua
+                </button>
+                <button class="btn-checkout" onclick="checkout()">
+                  Checkout
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Pembayaran Berhasil!</h3>
+            </div>
+            <div class="modal-body">
+              <div class="success-icon">✓</div>
+              <p>Total Pembayaran:</p>
+              <p class="modal-total" id="modal-total">Rp 0</p>
+              <div class="receipt-info">
+                <p><strong>Nomor Transaksi:</strong></p>
+                <p id="transaction-number"></p>
+                <p class="timestamp" id="transaction-time"></p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn-modal-close" onclick="closeModal()">
+                Tutup
+              </button>
+              <button class="btn-print" onclick="printReceipt()">
+                Cetak Struk
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/kasir.js"></script>
+  </body>
+</html>
